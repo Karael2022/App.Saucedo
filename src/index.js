@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button, ListViewBase, FlatList, Modal, TouchableOpacity } from 'react-native';
-import { styles } from './styles';
+import { Text, View, TextInput, Button, FlatList, Modal, TouchableOpacity } from 'react-native';
+import {styles} from '../styles';
 
 export default function App() {
   const [task, setTask] = useState ('');
@@ -40,7 +39,7 @@ export default function App() {
         <TextInput 
           style = {styles.input} 
           value={task}
-          placeholder = "Ingrese Tarea..."
+          placeholder = "Ingrese Tarea a realizar"
           onChangeText= {text => setTask(text)}/>
         <Button disabled={!task} title='Add' color ='#caadde' onPress={onHandleTask}/>
       </View>
