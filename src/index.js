@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Text, View, TextInput, Button, FlatList, Modal, TouchableOpacity } from 'react-native';
-import {styles} from '../styles';
+import {styles} from './styles';
+import { AddItem,TaskItem } from './componentes/index';
+
 
 export default function App() {
   const [task, setTask] = useState ('');
@@ -15,13 +17,11 @@ export default function App() {
   }
   const onHandleSelected = (item)=> {
     setselectedTask(item);
-    setModalVisible(true);
+    setModalVisible(!modalVisible);
   }
 
-  const rederItem = ({item}) => (
-    <TouchableOpacity style={styles.listItemContainer} onPress= {()=> onHandleSelected(item)}>
-        <Text style = {styles.listItem}>{item.value}</Text>  
-      </TouchableOpacity>
+  const renderItem = ({item}) => (
+    <TaskItem item={item} onHandleSelected={onHandleSelected} />
     )
 
     const onHandleCancel =() => {
@@ -33,16 +33,11 @@ export default function App() {
       setModalVisible(!modalVisible);
     }
 
+    const onHandleChange = (text) => setTask(text); 
+
   return (
     <View style={styles.container}>
-      <View style = {styles.inputContainer}>
-        <TextInput 
-          style = {styles.input} 
-          value={task}
-          placeholder = "Ingrese Tarea a realizar"
-          onChangeText= {text => setTask(text)}/>
-        <Button disabled={!task} title='Add' color ='#caadde' onPress={onHandleTask}/>
-      </View>
+      <AddItem task={task} onHandleTask= {onHandleTask} onHandleChange={onHandleChange}/>
       <View style={styles.listContainer}>
       <Text style = {styles.listTitle}>ToDo List</Text>
       </View>
@@ -50,7 +45,7 @@ export default function App() {
       <FlatList
         style={styles.listContainer}
         data={taskList}
-        renderItem={rederItem}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
       />
       <Modal visible ={modalVisible} animationType='slide'>
