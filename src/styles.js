@@ -1,22 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#F6F4F5',
     },
-    inputContainer : {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginHorizontal:20,
-      marginVertical:40,
-    },
-    input: {
-      width:'80%',
-      borderBottomWidth: 1,
-      borderBottomColor: '#9a848f',
-      paddingVertical:5,
-    },
+    
     
     listContainer:{
       marginHorizontal: 20,
@@ -27,27 +16,7 @@ export const styles = StyleSheet.create({
       marginBottom: 10,
       color: '#4f3b78',
     },
-    listItemContainer:{
-      marginVertical:10,
-      paddingVertical: 20,
-      backgroundColor:'#4f3b78',
-      borderRadius:5,
-      alignItems:'center',
-      padding:10,
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-    },
-    listItem:{
-      fontStyle:'italic',
-      color:'#f6f6f6',
-      paddingHorizontal:10,
-    },
+    
   
     modalContainer:{
       justifyContent : 'center',
@@ -84,5 +53,5 @@ export const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-around',
       marginHorizontal:70,
-    },
+    }
   });

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Text, View, TextInput, Button, FlatList, Modal, TouchableOpacity } from 'react-native';
 import {styles} from './styles';
-import { AddItem,TaskItem } from './componentes/index';
+import { AddItem ,TaskItem } from './componentes/index';
 
 
 export default function App() {
